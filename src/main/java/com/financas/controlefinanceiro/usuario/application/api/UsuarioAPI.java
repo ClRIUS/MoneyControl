@@ -1,4 +1,4 @@
-package com.financas.controlefinanceiro.usuario.application;
+package com.financas.controlefinanceiro.usuario.application.api;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

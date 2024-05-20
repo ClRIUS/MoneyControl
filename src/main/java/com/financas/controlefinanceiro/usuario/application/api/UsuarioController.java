@@ -1,6 +1,6 @@
-package com.financas.controlefinanceiro.usuario.application;
+package com.financas.controlefinanceiro.usuario.application.api;
 
-import com.financas.controlefinanceiro.usuario.service.UsuarioService;
+import com.financas.controlefinanceiro.usuario.application.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Log4j2
 @RequiredArgsConstructor
-public class UsuarioController implements UsuarioAPI{
+public class UsuarioController implements UsuarioAPI {
     private final UsuarioService usuarioService;
 
     @Override

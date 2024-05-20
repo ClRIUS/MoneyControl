@@ -1,15 +1,23 @@
 package com.financas.controlefinanceiro.usuario.domain;
 
+import com.financas.controlefinanceiro.usuario.application.api.UsuarioRequest;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.util.UUID;
 
+@Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,4 +29,10 @@ public class Usuario {
     @NotEmpty
     private String senha;
     private TipoUsuario tipoUsuario;
+
+    public Usuario(UsuarioRequest usuarioRequest) {
+        this.email = usuarioRequest.getEmail();
+        this.senha = usuarioRequest.getSenha();
+        this.tipoUsuario = usuarioRequest.getTipoUsuario();
+    }
 }

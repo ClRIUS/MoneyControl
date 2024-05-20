@@ -1,4 +1,4 @@
-package com.financas.controlefinanceiro.usuario.application;
+package com.financas.controlefinanceiro.usuario.application.api;
 
 import com.financas.controlefinanceiro.usuario.domain.TipoUsuario;
 import jakarta.validation.constraints.Email;
