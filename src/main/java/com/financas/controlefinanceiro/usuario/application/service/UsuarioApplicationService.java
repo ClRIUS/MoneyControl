@@ -1,5 +1,6 @@
 package com.financas.controlefinanceiro.usuario.application.service;
 
+import com.financas.controlefinanceiro.usuario.application.api.UsuarioListResponse;
 import com.financas.controlefinanceiro.usuario.application.api.UsuarioRequest;
 import com.financas.controlefinanceiro.usuario.application.api.UsuarioResponse;
 import com.financas.controlefinanceiro.usuario.application.repository.UsuarioRepository;
@@ -7,6 +8,8 @@ import com.financas.controlefinanceiro.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Log4j2
@@ -22,5 +25,12 @@ public class UsuarioApplicationService implements UsuarioService{
         return UsuarioResponse.builder()
                 .idUsuario(usuario.getIdUsuario())
                 .build();
+    }
+
+    @Override
+    public List<UsuarioListResponse> listaUsuarios() {
+        log.info("[Start] UsuarioApplicationService - listaUsuarios");
+        log.info("[Finish] UsuarioApplicationService - listaUsuarios");
+        return null;
     }
 }

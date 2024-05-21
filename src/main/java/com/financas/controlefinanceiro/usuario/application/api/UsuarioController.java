@@ -24,7 +24,8 @@ public class UsuarioController implements UsuarioAPI {
     @Override
     public List<UsuarioListResponse> listaUsuarios() {
         log.info("[Start] UsuarioController - ListaUsuarios");
+        List<UsuarioListResponse> usuarios = usuarioService.listaUsuarios();
         log.info("[Finish] UsuarioController - ListaUsuarios");
-        return null;
+        return usuarios;
     }
 }
