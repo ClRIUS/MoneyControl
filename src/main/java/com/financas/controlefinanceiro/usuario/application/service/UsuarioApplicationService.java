@@ -32,6 +32,6 @@ public class UsuarioApplicationService implements UsuarioService{
         log.info("[Start] UsuarioApplicationService - listaUsuarios");
         List<Usuario> usuarios = usuarioRepository.buscaTodosUsuarios();
         log.info("[Finish] UsuarioApplicationService - listaUsuarios");
-        return null;
+        return UsuarioListResponse.converte(usuarios);
     }
 }
