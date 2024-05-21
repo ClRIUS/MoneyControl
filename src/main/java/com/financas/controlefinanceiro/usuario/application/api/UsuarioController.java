@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -27,5 +28,12 @@ public class UsuarioController implements UsuarioAPI {
         List<UsuarioListResponse> usuarios = usuarioService.listaUsuarios();
         log.info("[Finish] UsuarioController - ListaUsuarios");
         return usuarios;
+    }
+
+    @Override
+    public UsuarioDetalhadoResponse detalhaUsuario(UUID idUsuario) {
+        log.info("[Start] UsuarioController - detalhaUsuario");
+        log.info("[Start] UsuarioController - detalhaUsuario");
+        return null;
     }
 }

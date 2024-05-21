@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/usuario")
@@ -16,4 +17,8 @@ public interface UsuarioAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<UsuarioListResponse> listaUsuarios();
+
+    @GetMapping(value = "/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.OK)
+    UsuarioDetalhadoResponse detalhaUsuario(@PathVariable UUID idUsuario);
 }

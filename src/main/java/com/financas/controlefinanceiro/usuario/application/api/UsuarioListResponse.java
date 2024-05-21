@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 public class UsuarioListResponse {
     private UUID idUsuario;
     private String email;
-    private TipoUsuario tipoUsuario;
 
     public static List<UsuarioListResponse> converte(List<Usuario> usuarios) {
         return usuarios.stream()
@@ -23,6 +22,5 @@ public class UsuarioListResponse {
     public UsuarioListResponse(Usuario usuario) {
         this.idUsuario = usuario.getIdUsuario();
         this.email = usuario.getEmail();
-        this.tipoUsuario = usuario.getTipoUsuario();
     }
 }
