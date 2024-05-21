@@ -30,6 +30,7 @@ public class UsuarioApplicationService implements UsuarioService{
     @Override
     public List<UsuarioListResponse> listaUsuarios() {
         log.info("[Start] UsuarioApplicationService - listaUsuarios");
+        List<Usuario> usuarios = usuarioRepository.buscaTodosUsuarios();
         log.info("[Finish] UsuarioApplicationService - listaUsuarios");
         return null;
     }
