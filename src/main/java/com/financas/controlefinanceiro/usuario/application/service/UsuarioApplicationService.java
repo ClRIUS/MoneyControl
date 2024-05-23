@@ -1,9 +1,6 @@
 package com.financas.controlefinanceiro.usuario.application.service;
 
-import com.financas.controlefinanceiro.usuario.application.api.UsuarioDetalhadoResponse;
-import com.financas.controlefinanceiro.usuario.application.api.UsuarioListResponse;
-import com.financas.controlefinanceiro.usuario.application.api.UsuarioRequest;
-import com.financas.controlefinanceiro.usuario.application.api.UsuarioResponse;
+import com.financas.controlefinanceiro.usuario.application.api.*;
 import com.financas.controlefinanceiro.usuario.application.repository.UsuarioRepository;
 import com.financas.controlefinanceiro.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
@@ -43,5 +40,14 @@ public class UsuarioApplicationService implements UsuarioService{
         Usuario usuario = usuarioRepository.buscaUsuario(idUsuario);
         log.info("[Finish] UsuarioApplicationService - detalhaCadastroUsuario");
         return new UsuarioDetalhadoResponse(usuario);
+    }
+
+    @Override
+    public void alteraUsuario(UUID idUsuario, UsuarioAlteraRequest usuarioAlteraRequest) {
+        log.info("[Start] UsuarioApplicationService - alteraUsuario");
+        Usuario usuario = usuarioRepository.buscaUsuario(idUsuario);
+        usuario.alteraUsuario(usuarioAlteraRequest);
+        usuarioRepository.salva(usuario);
+        log.info("[Finish] UsuarioApplicationService - alteraUsuario");
     }
 }

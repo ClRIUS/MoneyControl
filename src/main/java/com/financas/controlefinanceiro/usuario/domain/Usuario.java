@@ -1,5 +1,6 @@
 package com.financas.controlefinanceiro.usuario.domain;
 
+import com.financas.controlefinanceiro.usuario.application.api.UsuarioAlteraRequest;
 import com.financas.controlefinanceiro.usuario.application.api.UsuarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -30,5 +31,10 @@ public class Usuario {
         this.email = usuarioRequest.getEmail();
         this.senha = usuarioRequest.getSenha();
         this.tipoUsuario = usuarioRequest.getTipoUsuario();
+    }
+    public void alteraUsuario(UsuarioAlteraRequest usuarioAlteraRequest) {
+        this.email = usuarioAlteraRequest.getEmail();
+        this.senha = usuarioAlteraRequest.getSenha();
+        this.tipoUsuario = usuarioAlteraRequest.getTipoUsuario();
     }
 }
