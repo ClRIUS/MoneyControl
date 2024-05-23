@@ -34,7 +34,9 @@ public class UsuarioInfraRepository implements UsuarioRepository {
     @Override
     public Usuario buscaUsuario(UUID idUsuario) {
         log.info("[Start] UsuarioInfraRepository - buscaUsuario");
+        Usuario usuario = usuarioSpringDataRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Usuario não Encontrado!"));
         log.info("[Finish] UsuarioInfraRepository - buscaUsuario");
-        return null;
+        return usuario;
     }
 }
