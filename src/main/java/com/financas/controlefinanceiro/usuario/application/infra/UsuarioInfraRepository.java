@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -28,5 +29,12 @@ public class UsuarioInfraRepository implements UsuarioRepository {
         List<Usuario> todosUsuarios = usuarioSpringDataRepository.findAll();
         log.info("[Finish] UsuarioInfraRepository - buscaTodosUsuarios");
         return todosUsuarios;
+    }
+
+    @Override
+    public Usuario buscaUsuario(UUID idUsuario) {
+        log.info("[Start] UsuarioInfraRepository - buscaUsuario");
+        log.info("[Finish] UsuarioInfraRepository - buscaUsuario");
+        return null;
     }
 }
