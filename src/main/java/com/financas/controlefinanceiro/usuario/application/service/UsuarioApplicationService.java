@@ -1,5 +1,6 @@
 package com.financas.controlefinanceiro.usuario.application.service;
 
+import com.financas.controlefinanceiro.usuario.application.api.UsuarioDetalhadoResponse;
 import com.financas.controlefinanceiro.usuario.application.api.UsuarioListResponse;
 import com.financas.controlefinanceiro.usuario.application.api.UsuarioRequest;
 import com.financas.controlefinanceiro.usuario.application.api.UsuarioResponse;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -33,5 +35,12 @@ public class UsuarioApplicationService implements UsuarioService{
         List<Usuario> usuarios = usuarioRepository.buscaTodosUsuarios();
         log.info("[Finish] UsuarioApplicationService - listaUsuarios");
         return UsuarioListResponse.converte(usuarios);
+    }
+
+    @Override
+    public UsuarioDetalhadoResponse detalhaCadastroUsuario(UUID idUsuario) {
+        log.info("[Start] UsuarioApplicationService - detalhaCadastroUsuario");
+        log.info("[Finish] UsuarioApplicationService - detalhaCadastroUsuario");
+        return null;
     }
 }

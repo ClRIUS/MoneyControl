@@ -33,7 +33,9 @@ public class UsuarioController implements UsuarioAPI {
     @Override
     public UsuarioDetalhadoResponse detalhaUsuario(UUID idUsuario) {
         log.info("[Start] UsuarioController - detalhaUsuario");
+        log.info("[idUsuario] {}", idUsuario);
+        UsuarioDetalhadoResponse usuario = usuarioService.detalhaCadastroUsuario(idUsuario);
         log.info("[Start] UsuarioController - detalhaUsuario");
-        return null;
+        return usuario;
     }
 }
