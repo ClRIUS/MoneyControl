@@ -21,4 +21,9 @@ public interface UsuarioAPI {
     @GetMapping(value = "/{idUsuario}")
     @ResponseStatus(code = HttpStatus.OK)
     UsuarioDetalhadoResponse detalhaUsuario(@PathVariable UUID idUsuario);
+
+    @PatchMapping(value = "/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void alteraUsuario(@PathVariable UUID idUsuario,
+                  @Valid @RequestBody UsuarioAlteraRequest usuarioAlteraRequest);
 }
