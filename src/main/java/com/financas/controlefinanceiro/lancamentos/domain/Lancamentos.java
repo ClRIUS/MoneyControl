@@ -1,6 +1,8 @@
 package com.financas.controlefinanceiro.lancamentos.domain;
 
+import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoRequest;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -33,4 +35,13 @@ public class Lancamentos {
     private double valor;
     private LocalDateTime dataHoraLancamento;
     private LocalDateTime dataHoraUltimaAlteracao;
+
+    public Lancamentos(UUID idUsuario, @Valid LancamentoRequest lancamentoRequest) {
+        this.idUsuarioLancamento = idUsuario;
+        this.tipoLancamento = lancamentoRequest.getTipoLancamento();
+        this.categoria = lancamentoRequest.getCategoria();
+        this.descricao = lancamentoRequest.getDescricao();
+        this.valor = lancamentoRequest.getValor();
+        this.dataHoraLancamento = LocalDateTime.now();
+    }
 }
