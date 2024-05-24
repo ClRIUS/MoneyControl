@@ -12,9 +12,9 @@ import lombok.Value;
 @Valid
 @Value
 public class LancamentoRequest {
-    @NotEmpty
+    @NotNull
     private TipoLancamento tipoLancamento;
-    @NotEmpty
+    @NotNull
     private Categoria categoria;
     @Size(max = 35)
     private String descricao;

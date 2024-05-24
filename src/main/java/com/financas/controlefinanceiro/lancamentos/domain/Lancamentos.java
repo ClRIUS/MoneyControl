@@ -22,9 +22,9 @@ public class Lancamentos {
     @NotNull
     @Column(name = "idUsuarioLancamento", nullable = false)
     private UUID idUsuarioLancamento;
-    @NotEmpty
+    @NotNull
     private TipoLancamento tipoLancamento;
-    @NotEmpty
+    @NotNull
     private Categoria categoria;
     @Size(max = 35)
     private String descricao;
