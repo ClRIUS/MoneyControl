@@ -14,7 +14,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class Lançamentos {
+public class Lancamentos {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idLancamento", updatable = false, unique = true, nullable = false)
