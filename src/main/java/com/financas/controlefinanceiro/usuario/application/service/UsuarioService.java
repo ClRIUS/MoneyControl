@@ -10,4 +10,5 @@ public interface UsuarioService {
     List<UsuarioListResponse> listaUsuarios();
     UsuarioDetalhadoResponse detalhaCadastroUsuario(UUID idUsuario);
     void alteraUsuario(UUID idUsuario, UsuarioAlteraRequest usuarioAlteraRequest);
+    void deletaUsuario(UUID idUsuario);
 }

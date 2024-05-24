@@ -9,4 +9,5 @@ public interface UsuarioRepository {
     Usuario salva(Usuario usuario);
     List<Usuario> buscaTodosUsuarios();
     Usuario buscaUsuario(UUID idUsuario);
+    void deletaUsuarioPorId(Usuario usuario);
 }

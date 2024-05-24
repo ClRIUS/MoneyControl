@@ -26,4 +26,8 @@ public interface UsuarioAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void alteraUsuario(@PathVariable UUID idUsuario,
                   @Valid @RequestBody UsuarioAlteraRequest usuarioAlteraRequest);
+
+    @DeleteMapping(value = "/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaUsuario(@PathVariable UUID idUsuario);
 }

@@ -50,4 +50,12 @@ public class UsuarioApplicationService implements UsuarioService{
         usuarioRepository.salva(usuario);
         log.info("[Finish] UsuarioApplicationService - alteraUsuario");
     }
+
+    @Override
+    public void deletaUsuario(UUID idUsuario) {
+        log.info("[Start] UsuarioApplicationService - deletaUsuario");
+        Usuario usuario = usuarioRepository.buscaUsuario(idUsuario);
+        usuarioRepository.deletaUsuarioPorId(usuario);
+        log.info("[Finish] UsuarioApplicationService - deletaUsuario");
+    }
 }
