@@ -1,5 +1,6 @@
 package com.financas.controlefinanceiro.lancamentos.application.service;
 
+import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoListResponse;
 import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoRequest;
 import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoResponse;
 import com.financas.controlefinanceiro.lancamentos.application.repository.LancamentoRepository;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -26,4 +28,13 @@ public class LancamentoApplicationService implements LancamentoService{
         log.info("[Finish] LancamentoApplicationService - novoLancamento");
         return new LancamentoResponse(lancamento.getIdLancamento());
     }
+
+    @Override
+    public List<LancamentoListResponse> listaTodosLancamentos(UUID idUsuario) {
+        log.info("[Start] LancamentoApplicationService - listaLancamentosPositivos");
+        usuarioService.detalhaCadastroUsuario(idUsuario);
+        List<Lancamentos> listaLancamentos = lancamentoRepository.listaTodosLancamentos();
+        log.info("[Finish] LancamentoApplicationService - listaLancamentosPositivos");
+        return LancamentoListResponse.converte(listaLancamentos);
+        }
 }
