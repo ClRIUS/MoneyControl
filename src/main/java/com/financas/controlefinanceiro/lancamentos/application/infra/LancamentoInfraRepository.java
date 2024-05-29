@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -18,5 +20,13 @@ public class LancamentoInfraRepository implements LancamentoRepository {
         lancamentoSpringDataRepository.save(lancamentos);
         log.info("[Finish] LancamentoInfraRepository - salva");
         return lancamentos;
+    }
+
+    @Override
+    public List<Lancamentos> listaTodosLancamentos() {
+        log.info("[Start] LancamentoInfraRepository - listaPositivos");
+        List<Lancamentos> listaTodosLancamentos = lancamentoSpringDataRepository.findAll();
+        log.info("[Finish] LancamentoInfraRepository - listaPositivos");
+        return listaTodosLancamentos;
     }
 }
