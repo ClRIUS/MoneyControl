@@ -11,7 +11,7 @@ import java.util.UUID;
 @RestController
 @Log4j2
 @RequiredArgsConstructor
-public class LancamentoController implements LancamentosAPI{
+public class LancamentoController implements LancamentoAPI {
     private final LancamentoService lancamentoService;
 
     @Override
@@ -29,5 +29,12 @@ public class LancamentoController implements LancamentosAPI{
         List<LancamentoListResponse> lancamentosPositivos = lancamentoService.listaTodosLancamentos(idUsuario);
         log.info("[Finish] LancamentoController - listaTodosLancamentosPositivos");
         return lancamentosPositivos;
+    }
+
+    @Override
+    public LancamentoDetalhadoResponse detalhaLancamento(UUID idUsuario, UUID idLancamento) {
+        log.info("[Start] LancamentoController - detalhaLancamento");
+        log.info("[Finish] LancamentoController - detalhaLancamento");
+        return null;
     }
 }

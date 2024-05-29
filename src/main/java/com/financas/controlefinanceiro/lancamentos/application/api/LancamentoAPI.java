@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/usuario/{idUsuario}/lancamentos")
-public interface LancamentosAPI {
+public interface LancamentoAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     LancamentoResponse novoLancamento(@PathVariable UUID idUsuario,
@@ -18,4 +18,8 @@ public interface LancamentosAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<LancamentoListResponse>listaTodosLancamentos(@PathVariable UUID idUsuario);
+
+    @GetMapping(value = "/{idLancamento}")
+    @ResponseStatus(code = HttpStatus.OK)
+    LancamentoDetalhadoResponse detalhaLancamento(@PathVariable UUID idUsuario, @PathVariable UUID idLancamento);
 }
