@@ -7,6 +7,6 @@ import java.util.UUID;
 
 public interface LancamentoRepository {
     Lancamentos salva(Lancamentos lancamentos);
-    List<Lancamentos> listaTodosLancamentos();
+    List<Lancamentos> listaTodosLancamentos(UUID idUsuario);
     Lancamentos buscaLancamentoId(UUID idLancamento);
 }

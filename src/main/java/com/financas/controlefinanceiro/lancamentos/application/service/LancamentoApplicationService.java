@@ -34,7 +34,7 @@ public class LancamentoApplicationService implements LancamentoService{
     public List<LancamentoListResponse> listaTodosLancamentos(UUID idUsuario) {
         log.info("[Start] LancamentoApplicationService - listaLancamentosPositivos");
         usuarioService.detalhaCadastroUsuario(idUsuario);
-        List<Lancamentos> listaLancamentos = lancamentoRepository.listaTodosLancamentos();
+        List<Lancamentos> listaLancamentos = lancamentoRepository.listaTodosLancamentos(idUsuario);
         log.info("[Finish] LancamentoApplicationService - listaLancamentosPositivos");
         return LancamentoListResponse.converte(listaLancamentos);
         }

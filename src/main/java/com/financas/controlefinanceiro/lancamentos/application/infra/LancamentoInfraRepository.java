@@ -24,9 +24,9 @@ public class LancamentoInfraRepository implements LancamentoRepository {
     }
 
     @Override
-    public List<Lancamentos> listaTodosLancamentos() {
+    public List<Lancamentos> listaTodosLancamentos(UUID idUsuario) {
         log.info("[Start] LancamentoInfraRepository - listaPositivos");
-        List<Lancamentos> listaTodosLancamentos = lancamentoSpringDataRepository.findAll();
+        List<Lancamentos> listaTodosLancamentos = lancamentoSpringDataRepository.findByIdUsuarioLancamento(idUsuario);
         log.info("[Finish] LancamentoInfraRepository - listaPositivos");
         return listaTodosLancamentos;
     }
