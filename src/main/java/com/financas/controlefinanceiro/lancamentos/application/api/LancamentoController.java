@@ -1,6 +1,7 @@
 package com.financas.controlefinanceiro.lancamentos.application.api;
 
 import com.financas.controlefinanceiro.lancamentos.application.service.LancamentoService;
+import com.financas.controlefinanceiro.lancamentos.domain.Lancamentos;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,7 +35,8 @@ public class LancamentoController implements LancamentoAPI {
     @Override
     public LancamentoDetalhadoResponse detalhaLancamento(UUID idUsuario, UUID idLancamento) {
         log.info("[Start] LancamentoController - detalhaLancamento");
+        LancamentoDetalhadoResponse lancamento = lancamentoService.detalhaLancamentoPorId(idUsuario, idLancamento);
         log.info("[Finish] LancamentoController - detalhaLancamento");
-        return null;
+        return lancamento;
     }
 }
