@@ -22,4 +22,9 @@ public interface LancamentoAPI {
     @GetMapping(value = "/{idLancamento}")
     @ResponseStatus(code = HttpStatus.OK)
     LancamentoDetalhadoResponse detalhaLancamento(@PathVariable UUID idUsuario, @PathVariable UUID idLancamento);
+
+    @PatchMapping
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void editaLancamento(@PathVariable UUID idUsuario, @PathVariable UUID idLancamento,
+                         @Valid @RequestBody LancamentoAlteracaoRequest lancamentoAlteracaoRequest);
 }
