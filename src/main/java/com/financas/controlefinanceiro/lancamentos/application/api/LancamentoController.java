@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -20,5 +21,13 @@ public class LancamentoController implements LancamentosAPI{
         LancamentoResponse lancamento = lancamentoService.novoLancamento(idUsuario, lancamentoRequest);
         log.info("[Finish] LancamentoController - novoLancamento");
         return lancamento;
+    }
+
+    @Override
+    public List<LancamentoListResponse> listaTodosLancamentos(UUID idUsuario) {
+        log.info("[Start] LancamentoController - listaTodosLancamentosPositivos");
+        List<LancamentoListResponse> lancamentosPositivos = lancamentoService.listaTodosLancamentos(idUsuario);
+        log.info("[Finish] LancamentoController - listaTodosLancamentosPositivos");
+        return lancamentosPositivos;
     }
 }
