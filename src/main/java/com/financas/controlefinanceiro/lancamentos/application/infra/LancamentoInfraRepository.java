@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -28,5 +29,14 @@ public class LancamentoInfraRepository implements LancamentoRepository {
         List<Lancamentos> listaTodosLancamentos = lancamentoSpringDataRepository.findAll();
         log.info("[Finish] LancamentoInfraRepository - listaPositivos");
         return listaTodosLancamentos;
+    }
+
+    @Override
+    public Lancamentos buscaLancamentoId(UUID idLancamento) {
+        log.info("[Start] LacamentoInfraRepository - buscaLancamentoId");
+        Lancamentos lancamento = lancamentoSpringDataRepository.findById(idLancamento)
+                .orElseThrow(() -> new RuntimeException("Lançamento não encontrado!"));;;
+        log.info("[Finish] LacamentoInfraRepository - buscaLancamentoId");
+        return lancamento;
     }
 }

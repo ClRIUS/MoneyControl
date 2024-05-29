@@ -1,5 +1,6 @@
 package com.financas.controlefinanceiro.lancamentos.application.service;
 
+import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoDetalhadoResponse;
 import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoListResponse;
 import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoRequest;
 import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoResponse;
@@ -37,4 +38,13 @@ public class LancamentoApplicationService implements LancamentoService{
         log.info("[Finish] LancamentoApplicationService - listaLancamentosPositivos");
         return LancamentoListResponse.converte(listaLancamentos);
         }
+
+    @Override
+    public LancamentoDetalhadoResponse detalhaLancamentoPorId(UUID idUsuario, UUID idLancamento) {
+        log.info("[Start] LancamentoApplicationService - detalhaLancamentoPorId");
+        usuarioService.detalhaCadastroUsuario(idUsuario);
+        Lancamentos lancamento = lancamentoRepository.buscaLancamentoId(idLancamento);
+        log.info("[Finish] LancamentoApplicationService - detalhaLancamentoPorId");
+        return new LancamentoDetalhadoResponse(lancamento);
+    }
 }
