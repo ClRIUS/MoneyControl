@@ -1,9 +1,6 @@
 package com.financas.controlefinanceiro.lancamentos.application.service;
 
-import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoDetalhadoResponse;
-import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoListResponse;
-import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoRequest;
-import com.financas.controlefinanceiro.lancamentos.application.api.LancamentoResponse;
+import com.financas.controlefinanceiro.lancamentos.application.api.*;
 import com.financas.controlefinanceiro.lancamentos.application.repository.LancamentoRepository;
 import com.financas.controlefinanceiro.lancamentos.domain.Lancamentos;
 import com.financas.controlefinanceiro.usuario.application.service.UsuarioService;
@@ -46,5 +43,15 @@ public class LancamentoApplicationService implements LancamentoService{
         Lancamentos lancamento = lancamentoRepository.buscaLancamentoId(idLancamento);
         log.info("[Finish] LancamentoApplicationService - detalhaLancamentoPorId");
         return new LancamentoDetalhadoResponse(lancamento);
+    }
+
+    @Override
+    public void editaLancamentoUsuario(UUID idUsuario, UUID idLancamento, LancamentoAlteracaoRequest lancamentoAlteracaoRequest) {
+        log.info("[Start] LancamentoApplicationService - editaLancamentoUsuario");
+        usuarioService.detalhaCadastroUsuario(idUsuario);
+        Lancamentos lancamento = lancamentoRepository.buscaLancamentoId(idLancamento);
+        lancamento.edita(lancamentoAlteracaoRequest);
+        lancamentoRepository.salva(lancamento);
+        log.info("[Finish] LancamentoApplicationService - editaLancamentoUsuario");
     }
 }
