@@ -2,6 +2,7 @@ package com.financas.controlefinanceiro.lancamentos.application.infra;
 
 import com.financas.controlefinanceiro.lancamentos.application.repository.LancamentoRepository;
 import com.financas.controlefinanceiro.lancamentos.domain.Lancamentos;
+import com.financas.controlefinanceiro.lancamentos.domain.TipoLancamento;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
@@ -45,5 +46,14 @@ public class LancamentoInfraRepository implements LancamentoRepository {
         log.info("[Start] LancamentoInfraRepository - deletaLancamentoPorId");
         lancamentoSpringDataRepository.deleteById(idLancamento);
         log.info("[Finish] LancamentoInfraRepository - deletaLancamentoPorId");
+    }
+
+    @Override
+    public Double somaReceitas(UUID idUsuario) {
+        log.info("[Start] LancamentoInfraRepository - somaReceitas");
+        Double soma = lancamentoSpringDataRepository
+                .sumByTipoLancamentoAndIdUsuarioLancamento(TipoLancamento.RECEITA, idUsuario);
+        log.info("[Finish] LancamentoInfraRepository - somaReceitas");
+        return soma;
     }
 }

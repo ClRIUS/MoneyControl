@@ -10,4 +10,5 @@ public interface LancamentoRepository {
     List<Lancamentos> listaTodosLancamentos(UUID idUsuario);
     Lancamentos buscaLancamentoId(UUID idLancamento);
     void deletaLancamentoPorId(UUID idLancamento);
+    Double somaReceitas(UUID idUsuario);
 }
