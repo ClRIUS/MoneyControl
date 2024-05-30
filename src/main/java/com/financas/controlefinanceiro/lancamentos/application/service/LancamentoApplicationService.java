@@ -63,4 +63,13 @@ public class LancamentoApplicationService implements LancamentoService{
         lancamentoRepository.deletaLancamentoPorId(idLancamento);
         log.info("[Finish] LancamentoApplicationService - deletaLancamentoId");
     }
+
+    @Override
+    public double calculaSomaReceitas(UUID idUsuario) {
+        log.info("[Start] LancamentoApplicationService - calculaSomaReceitas");
+        usuarioService.detalhaCadastroUsuario(idUsuario);
+        Double somaReceitas = lancamentoRepository.somaReceitas(idUsuario);
+        log.info("[Finish] LancamentoApplicationService - calculaSomaReceitas");
+        return somaReceitas != null ? somaReceitas : 0.0;
+    }
 }
