@@ -2,6 +2,7 @@ package com.financas.controlefinanceiro.lancamentos.application.service;
 
 import com.financas.controlefinanceiro.lancamentos.application.api.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,5 +12,5 @@ public interface LancamentoService {
     LancamentoDetalhadoResponse detalhaLancamentoPorId(UUID idUsuario, UUID idLancamento);
     void editaLancamentoUsuario(UUID idUsuario, UUID idLancamento, LancamentoAlteracaoRequest lancamentoAlteracaoRequest);
     void deletaLancamentoId(UUID idUsuario, UUID idLancamento);
-    double calculaSomaReceitas(UUID idUsuario);
+    double calculaSomaReceitas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal);
 }

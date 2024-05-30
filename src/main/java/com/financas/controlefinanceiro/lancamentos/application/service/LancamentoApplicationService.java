@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -65,10 +66,10 @@ public class LancamentoApplicationService implements LancamentoService{
     }
 
     @Override
-    public double calculaSomaReceitas(UUID idUsuario) {
+    public double calculaSomaReceitas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal) {
         log.info("[Start] LancamentoApplicationService - calculaSomaReceitas");
         usuarioService.detalhaCadastroUsuario(idUsuario);
-        Double somaReceitas = lancamentoRepository.somaReceitas(idUsuario);
+        Double somaReceitas = lancamentoRepository.somaReceitas(idUsuario, dataInicial, dataFinal);
         log.info("[Finish] LancamentoApplicationService - calculaSomaReceitas");
         return somaReceitas != null ? somaReceitas : 0.0;
     }

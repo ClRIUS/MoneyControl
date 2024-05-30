@@ -1,10 +1,13 @@
 package com.financas.controlefinanceiro.lancamentos.application.api;
 
 import com.financas.controlefinanceiro.lancamentos.application.service.LancamentoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -55,9 +58,11 @@ public class LancamentoController implements LancamentoAPI {
     }
 
     @Override
-    public String somaReceitas(UUID idUsuario) {
+    public String somaReceitas(UUID idUsuario, @Valid @RequestBody SomaLancamentosRequest somaLancamentosRequest) {
         log.info("[Start] LancamentoController - somaReceitas");
-        String soma = String.valueOf(lancamentoService.calculaSomaReceitas(idUsuario));
+        LocalDate dataInicial = somaLancamentosRequest.getDataInicial();
+        LocalDate dataFinal = somaLancamentosRequest.getDataFinal();
+        String soma = String.valueOf(lancamentoService.calculaSomaReceitas(idUsuario, dataInicial, dataFinal));
         log.info("[Finish] LancamentoController - somaReceitas");
         return "Seu total em Receitas é de: " + soma;
     }

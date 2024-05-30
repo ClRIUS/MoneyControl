@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -49,10 +50,10 @@ public class LancamentoInfraRepository implements LancamentoRepository {
     }
 
     @Override
-    public Double somaReceitas(UUID idUsuario) {
+    public Double somaReceitas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal) {
         log.info("[Start] LancamentoInfraRepository - somaReceitas");
         Double soma = lancamentoSpringDataRepository
-                .sumByTipoLancamentoAndIdUsuarioLancamento(TipoLancamento.RECEITA, idUsuario);
+                .sumByTipoLancamentoAndIdUsuarioLancamento(TipoLancamento.RECEITA, idUsuario, dataInicial, dataFinal);
         log.info("[Finish] LancamentoInfraRepository - somaReceitas");
         return soma;
     }
