@@ -31,4 +31,8 @@ public interface LancamentoAPI {
     @DeleteMapping(value = "/{idLancamento}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaLancamento(@PathVariable UUID idUsuario, @PathVariable UUID idLancamento);
+
+    @GetMapping("/soma-receitas")
+    @ResponseStatus(code = HttpStatus.OK)
+    String somaReceitas(@PathVariable UUID idUsuario);
 }
