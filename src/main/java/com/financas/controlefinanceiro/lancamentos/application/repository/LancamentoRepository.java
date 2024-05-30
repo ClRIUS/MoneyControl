@@ -9,4 +9,5 @@ public interface LancamentoRepository {
     Lancamentos salva(Lancamentos lancamentos);
     List<Lancamentos> listaTodosLancamentos(UUID idUsuario);
     Lancamentos buscaLancamentoId(UUID idLancamento);
+    void deletaLancamentoPorId(UUID idLancamento);
 }

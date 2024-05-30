@@ -54,4 +54,13 @@ public class LancamentoApplicationService implements LancamentoService{
         lancamentoRepository.salva(lancamento);
         log.info("[Finish] LancamentoApplicationService - editaLancamentoUsuario");
     }
+
+    @Override
+    public void deletaLancamentoId(UUID idUsuario, UUID idLancamento) {
+        log.info("[Start] LancamentoApplicationService - deletaLancamentoId");
+        usuarioService.detalhaCadastroUsuario(idUsuario);
+        Lancamentos lancamento = lancamentoRepository.buscaLancamentoId(idLancamento);
+        lancamentoRepository.deletaLancamentoPorId(idLancamento);
+        log.info("[Finish] LancamentoApplicationService - deletaLancamentoId");
+    }
 }

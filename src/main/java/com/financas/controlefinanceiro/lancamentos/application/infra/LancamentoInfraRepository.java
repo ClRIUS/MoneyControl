@@ -33,10 +33,17 @@ public class LancamentoInfraRepository implements LancamentoRepository {
 
     @Override
     public Lancamentos buscaLancamentoId(UUID idLancamento) {
-        log.info("[Start] LacamentoInfraRepository - buscaLancamentoId");
+        log.info("[Start] LancamentoInfraRepository - buscaLancamentoId");
         Lancamentos lancamento = lancamentoSpringDataRepository.findById(idLancamento)
                 .orElseThrow(() -> new RuntimeException("Lançamento não encontrado!"));;;
         log.info("[Finish] LacamentoInfraRepository - buscaLancamentoId");
         return lancamento;
+    }
+
+    @Override
+    public void deletaLancamentoPorId(UUID idLancamento) {
+        log.info("[Start] LancamentoInfraRepository - deletaLancamentoPorId");
+        lancamentoSpringDataRepository.deleteById(idLancamento);
+        log.info("[Finish] LancamentoInfraRepository - deletaLancamentoPorId");
     }
 }

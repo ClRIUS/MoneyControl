@@ -10,4 +10,5 @@ public interface LancamentoService {
     List<LancamentoListResponse> listaTodosLancamentos(UUID idUsuario);
     LancamentoDetalhadoResponse detalhaLancamentoPorId(UUID idUsuario, UUID idLancamento);
     void editaLancamentoUsuario(UUID idUsuario, UUID idLancamento, LancamentoAlteracaoRequest lancamentoAlteracaoRequest);
+    void deletaLancamentoId(UUID idUsuario, UUID idLancamento);
 }
