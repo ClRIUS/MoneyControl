@@ -27,4 +27,8 @@ public interface LancamentoAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void editaLancamento(@PathVariable UUID idUsuario, @PathVariable UUID idLancamento,
                          @Valid @RequestBody LancamentoAlteracaoRequest lancamentoAlteracaoRequest);
+
+    @DeleteMapping(value = "/{idLancamento}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaLancamento(@PathVariable UUID idUsuario, @PathVariable UUID idLancamento);
 }
