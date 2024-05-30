@@ -10,6 +10,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -33,7 +34,7 @@ public class Lancamentos {
     @NotNull
     @Column(scale = 2)
     private double valor;
-    private LocalDateTime dataHoraLancamento;
+    private LocalDate dataLancamento;
     private LocalDateTime dataHoraUltimaAlteracao;
 
     public Lancamentos(UUID idUsuario, @Valid LancamentoRequest lancamentoRequest) {
@@ -42,7 +43,7 @@ public class Lancamentos {
         this.categoria = lancamentoRequest.getCategoria();
         this.descricao = lancamentoRequest.getDescricao();
         this.valor = lancamentoRequest.getValor();
-        this.dataHoraLancamento = LocalDateTime.now();
+        this.dataLancamento = lancamentoRequest.getDataLancamento();
     }
 
     public void edita(LancamentoAlteracaoRequest lancamentoAlteracaoRequest) {

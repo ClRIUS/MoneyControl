@@ -5,6 +5,7 @@ import com.financas.controlefinanceiro.lancamentos.domain.Lancamentos;
 import com.financas.controlefinanceiro.lancamentos.domain.TipoLancamento;
 import lombok.Value;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,7 +17,7 @@ public class LancamentoDetalhadoResponse {
     private Categoria categoria;
     private String descricao;
     private double valor;
-    private LocalDateTime dataHoraLancamento;
+    private LocalDate dataLancamento;
     private LocalDateTime dataHoraUltimaAlteracao;
 
     public LancamentoDetalhadoResponse(Lancamentos lancamento) {
@@ -26,7 +27,7 @@ public class LancamentoDetalhadoResponse {
         this.categoria = lancamento.getCategoria();
         this.descricao = lancamento.getDescricao();
         this.valor = lancamento.getValor();
-        this.dataHoraLancamento = lancamento.getDataHoraLancamento();
+        this.dataLancamento = lancamento.getDataLancamento();
         this.dataHoraUltimaAlteracao = lancamento.getDataHoraUltimaAlteracao();
     }
 }

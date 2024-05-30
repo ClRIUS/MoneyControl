@@ -4,10 +4,11 @@ import com.financas.controlefinanceiro.lancamentos.domain.Categoria;
 import com.financas.controlefinanceiro.lancamentos.domain.TipoLancamento;
 import jakarta.persistence.Column;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Value;
+
+import java.time.LocalDate;
 
 @Valid
 @Value
@@ -21,4 +22,6 @@ public class LancamentoRequest {
     @NotNull
     @Column(scale = 2)
     private double valor;
+    @NotNull
+    private LocalDate dataLancamento;
 }
