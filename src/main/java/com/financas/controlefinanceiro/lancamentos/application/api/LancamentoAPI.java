@@ -34,5 +34,9 @@ public interface LancamentoAPI {
 
     @GetMapping("/soma-receitas")
     @ResponseStatus(code = HttpStatus.OK)
-    String somaReceitas(@PathVariable UUID idUsuario, @Valid SomaLancamentosRequest somaLancamentosRequest);
+    String somaReceitas(@PathVariable UUID idUsuario, @Valid LancamentosFiltroDataRequest somaLancamentosRequest);
+
+    @GetMapping("/soma-despesas")
+    @ResponseStatus(code = HttpStatus.OK)
+    String somaDespesas(@PathVariable UUID idUsuario, @Valid LancamentosFiltroDataRequest somaLancamentosRequest);
 }

@@ -58,12 +58,22 @@ public class LancamentoController implements LancamentoAPI {
     }
 
     @Override
-    public String somaReceitas(UUID idUsuario, @Valid @RequestBody SomaLancamentosRequest somaLancamentosRequest) {
+    public String somaReceitas(UUID idUsuario, @Valid @RequestBody LancamentosFiltroDataRequest somaLancamentosRequest) {
         log.info("[Start] LancamentoController - somaReceitas");
         LocalDate dataInicial = somaLancamentosRequest.getDataInicial();
         LocalDate dataFinal = somaLancamentosRequest.getDataFinal();
-        String soma = String.valueOf(lancamentoService.calculaSomaReceitas(idUsuario, dataInicial, dataFinal));
+        String somaReceitas = String.valueOf(lancamentoService.calculaSomaReceitas(idUsuario, dataInicial, dataFinal));
         log.info("[Finish] LancamentoController - somaReceitas");
-        return "Seu total em Receitas é de: " + soma;
+        return "Seu total em Receitas é de: " + somaReceitas;
+    }
+
+    @Override
+    public String somaDespesas(UUID idUsuario, @Valid @RequestBody LancamentosFiltroDataRequest somaLancamentosRequest) {
+        log.info("[Start] LancamentoController - somaDespesas");
+        LocalDate dataInicial = somaLancamentosRequest.getDataInicial();
+        LocalDate dataFinal = somaLancamentosRequest.getDataFinal();
+        String somaDespesas = String.valueOf(lancamentoService.calculaSomaDespesas(idUsuario, dataInicial, dataFinal));
+        log.info("[Finish] LancamentoController - somaDespesas");
+        return "Seu total em Despesas é de: " + somaDespesas;
     }
 }
