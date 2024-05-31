@@ -13,4 +13,5 @@ public interface LancamentoService {
     void editaLancamentoUsuario(UUID idUsuario, UUID idLancamento, LancamentoAlteracaoRequest lancamentoAlteracaoRequest);
     void deletaLancamentoId(UUID idUsuario, UUID idLancamento);
     double calculaSomaReceitas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal);
+    double calculaSomaDespesas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal);
 }

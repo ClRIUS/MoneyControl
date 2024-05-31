@@ -57,4 +57,13 @@ public class LancamentoInfraRepository implements LancamentoRepository {
         log.info("[Finish] LancamentoInfraRepository - somaReceitas");
         return soma;
     }
+
+    @Override
+    public Double somaDespesas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal) {
+        log.info("[Start] LancamentoInfraRepository - somaReceitas");
+        Double somaDespesas = lancamentoSpringDataRepository
+                .sumByTipoLancamentoAndIdUsuarioLancamento(TipoLancamento.DESPESA, idUsuario, dataInicial, dataFinal);
+        log.info("[Finish] LancamentoInfraRepository - somaReceitas");
+        return somaDespesas;
+    }
 }

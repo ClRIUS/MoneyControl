@@ -12,4 +12,5 @@ public interface LancamentoRepository {
     Lancamentos buscaLancamentoId(UUID idLancamento);
     void deletaLancamentoPorId(UUID idLancamento);
     Double somaReceitas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal);
+    Double somaDespesas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal);
 }

@@ -73,4 +73,13 @@ public class LancamentoApplicationService implements LancamentoService{
         log.info("[Finish] LancamentoApplicationService - calculaSomaReceitas");
         return somaReceitas != null ? somaReceitas : 0.0;
     }
+
+    @Override
+    public double calculaSomaDespesas(UUID idUsuario, LocalDate dataInicial, LocalDate dataFinal) {
+        log.info("[Start] LancamentoApplicationService - calculaSomaDespesas");
+        usuarioService.detalhaCadastroUsuario(idUsuario);
+        Double somaDespesas = lancamentoRepository.somaDespesas(idUsuario, dataInicial, dataFinal);
+        log.info("[Finish] LancamentoApplicationService - calculaSomaDespesas");
+        return somaDespesas != null ? somaDespesas : 0.0;
+    }
 }
