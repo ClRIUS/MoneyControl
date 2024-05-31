@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Valid
 @Value
-public class SomaLancamentosRequest {
+public class LancamentosFiltroDataRequest {
     @NotNull
     private LocalDate dataInicial;
     @NotNull
