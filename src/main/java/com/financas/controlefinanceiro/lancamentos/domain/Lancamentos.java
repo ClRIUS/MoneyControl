@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
+@Entity(name = "Lancamentos")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public class Lancamentos {

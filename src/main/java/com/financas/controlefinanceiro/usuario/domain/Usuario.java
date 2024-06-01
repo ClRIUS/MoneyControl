@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Getter
-@Entity
+@Entity(name = "Usuario")
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Usuario {
     @Id
